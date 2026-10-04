@@ -52,6 +52,20 @@
     @media(max-width:420px) { .header .brand > span { font-size:23px; } .hero { margin-top:16px; padding:43px 20px 30px; border-radius:20px; } .release { min-width:0; } .download { padding:22px 17px; border-radius:10px; } }
   
     .docs-link{margin-left:auto;color:var(--soft);font-size:13px;font-weight:700}.docs-link:hover{color:var(--accent)}.docs-link+.back{margin-left:3px}@media(max-width:600px){.docs-link{font-size:12px}}@media(max-width:420px){.docs-link{font-size:0}.docs-link::before{content:"?";font:700 14px/1 Inter,sans-serif}}
+
+    /* Wide displays keep the Downloads masthead spacious inside its frame. */
+    @media(min-width:1280px){
+      .header.wrap,.footer.wrap{width:min(1280px,calc(100% - 96px))}
+      main.wrap{width:min(1280px,calc(100% - 96px))}
+      .hero{min-height:350px;margin-top:34px;padding:68px clamp(52px,4.25vw,76px);gap:64px}
+      .hero h1{font-size:clamp(4rem,4.75vw,5.4rem)}
+      .hero p:not(.eyebrow){max-width:600px;font-size:18px}
+      .release{margin-right:4px}
+    }
+    @media(min-width:1680px){
+      .header.wrap,.footer.wrap,main.wrap{width:min(1360px,calc(100% - 128px))}
+      .hero{min-height:372px;padding-right:clamp(64px,4.75vw,88px);padding-left:clamp(64px,4.75vw,88px)}
+    }
   </style>
 </head>
 <body>
@@ -138,5 +152,5 @@
     setTheme(savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
     themeButton.addEventListener('click', () => { const next = document.body.classList.contains('dark') ? 'light' : 'dark'; setTheme(next); try { localStorage.setItem('reflex-theme', next); } catch (_) {} });
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a457b5625f7a5768',t:'MTc5MTE1MzgzOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
